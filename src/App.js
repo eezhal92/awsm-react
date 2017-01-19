@@ -14,7 +14,7 @@ const thisWeekArticles = [
 
 const App = () => (
   <div className="app" style={{ width: 960, margin: '0 auto' }}>
-    <h1>Awesome App</h1>
+    <h1>Awesome Apps</h1>
     <div style={{ display: 'inline-block', width: 400, marginRight: 20 }}>
         <ArticlePanel title="Popular" articles={popularArticles} />
     </div>

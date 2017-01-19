@@ -33,6 +33,12 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    alias: {
+      Utils: resolve(__dirname, 'src/utils'),
+    }
+  },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
