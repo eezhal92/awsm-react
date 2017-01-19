@@ -6,7 +6,7 @@ describe('<ArticleItem />', () => {
   const minProps = {
     title: 'Lari Pagi',
     summary: 'Lorem ipsum',
-    date: '31-01-2017',
+    date: '2017-12-31', // 31 Desember 2017
   };
 
   it('show article details', () => {
@@ -14,11 +14,23 @@ describe('<ArticleItem />', () => {
     const subject = shallow(<ArticleItem {...minProps} />);
 
     // title nya muncul
-    expect(subject.find('h2.article-item__title').text()).toBe('Lari Pagi');
+    expect(subject.find('.article-item__title').text()).toBe('Lari Pagi');
     // summary muncul
+    expect(subject.find('.article-item__summary').text()).toBe('Lorem ipsum');
     // date nya muncul
+    expect(subject.find('.article-item__date').text()).toBe('Date: 31 Dec 17');
   });
 
-  it('able change its title to uppercase when its button clicked');
+  it('able change its title to uppercase when its button clicked', () => {
+    // ShallowWrapper
+    const subject = shallow(<ArticleItem {...minProps} />);
+
+    expect(subject.find('.article-item__title').text()).toBe('Lari Pagi');
+
+    // simulate event click
+    subject.find('.article-item__title-to-uppercase').simulate('click', { preventDefault: () => {} });
+
+    expect(subject.find('.article-item__title').text()).toBe('LARI PAGI');
+  });
 
 });
